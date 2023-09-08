@@ -1,0 +1,48 @@
+//pages
+@import "./pages/mainweather.scss";
+
+//cmps
+
+@import "./components/searchbar.scss";
+@import "./components/sidebar.scss";
+
+@import "./helpers.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-sec {
+    color: white;
+    gap: 3%;
+  background-color: #111d2e;
+  height: 100vh;
+  padding-inline: 4%;
+  padding-block: 3%;
+}
+
+.info-sec {
+  width: 100%;
+  gap: 2%;
+}
+
+@media (min-width: 600px){
+    .main-sec {
+      padding-inline: 7%;
+      padding-block: 4%;
+    }
+    .info-sec {
+        gap: 5%;
+      }
+}
+@media (min-width: 1500px){
+    .main-sec {
+      padding-inline: 10%;
+      padding-block: 4%;
+    }
+    .info-sec {
+        gap: 5%;
+      }
+}

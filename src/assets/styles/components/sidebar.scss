@@ -1,0 +1,13 @@
+.sidebar-sec{
+    width: 17%;
+    background-color: #2b3a50;
+    border-radius: 20px;
+}
+
+
+
+@media (min-width: 900px){
+    .sidebar-sec{
+        width: 10%;
+    }
+}

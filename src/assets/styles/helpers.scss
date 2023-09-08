@@ -1,0 +1,32 @@
+.flex{
+    display: flex;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.grid-center{
+    display: grid;
+    place-items: center;
+}
+
+.debug{
+    outline: 1px solid red;
+}
+
+.relative{
+    position: relative;
+}
+
+.space-between{
+    justify-content: space-between;
+}

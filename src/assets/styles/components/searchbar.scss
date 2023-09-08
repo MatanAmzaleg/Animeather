@@ -1,0 +1,37 @@
+.searchbar-sec{
+    width: 70%;
+    height: 5vh;
+    background-color: #2b3a50;
+    border-radius: 15px;
+
+
+    .search-input{
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: larger;
+        margin-inline-start: 15px;
+        color:rgb(143, 143, 143);
+
+
+        transition: color 0.3s;
+        
+
+        &:focus {
+            color: rgb(206, 206, 205);
+            &::placeholder {
+                color:rgb(206, 206, 205);
+                transition: color 0.5s;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 600px){
+    .searchbar-sec{
+        width: 60%;
+        height: 6vh;
+    }
+}
