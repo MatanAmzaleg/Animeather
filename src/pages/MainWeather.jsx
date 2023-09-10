@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
-export const MainWeather = ({ weatherData }) => {
+
+
+
+export const MainWeather = ({ weatherData, fetchCurrLocationData}) => {
   console.log(weatherData);
 
   const [add,setAdd] = useState('')
@@ -10,15 +13,11 @@ export const MainWeather = ({ weatherData }) => {
       navigator.geolocation.getCurrentPosition(pos=>{
           const {latitude,longitude} = pos.coords;
           console.log(latitude,longitude)
-          const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+          const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&accept-language=en`;
           fetch(url).then(res=>res.json()).then(data=>setAdd(data.address))
       })
   },[])
 
-//   if (!weatherData) {
-//     console.log(add);
-//     return null; // Return null to render nothing if weatherData is not available
-//   }
 
 
   return (

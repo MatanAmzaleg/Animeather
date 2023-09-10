@@ -5,6 +5,7 @@ import { SearchBar } from "./cmps/SearchBar";
 import { Sidebar } from "./cmps/Sidebar.jsx";
 import "./assets/styles/main.scss";
 import { weatherService } from "./services/weahter.service";
+import MyLoader from "./cmps/LoaderSkeleton.jsx";
 
 function App() {
   const [weatherDetails, setWeatherDetails] = useState("");
@@ -30,6 +31,26 @@ function App() {
     };
   }, [input]);
 
+  const fetchCurrLocationData = async(add) => {
+console.log(add);
+const weatherData = await weatherService.getWeatherDetails(add.city);
+setWeatherDetails(weatherData);
+  }
+
+
+  if (!weatherDetails) {
+    setTimeout(()=>{
+      fetchCurrLocationData(add)
+    },100000)
+
+    return(
+      <MyLoader className="main-sec flex"></MyLoader>
+    )
+
+  }
+
+
+
   return (
     <>
       <section className="main-sec flex">
@@ -37,7 +58,7 @@ function App() {
         <div className="info-sec flex column">
           <SearchBar setInput={setInput} input={input}></SearchBar>
           <Routes>
-            <Route path="/" element={<MainWeather weatherData={weatherDetails}/>}></Route>
+            <Route path="/" element={<MainWeather fetchCurrLocationData={fetchCurrLocationData} weatherData={weatherDetails} />}></Route>
           </Routes>
         </div>
       </section>
